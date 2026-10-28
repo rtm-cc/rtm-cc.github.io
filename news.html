@@ -81,10 +81,26 @@
 
   <!-- News Iframe Container -->
   <div class="iframe-container" style="flex-grow: 1; width: 100%">
-    <iframe class="cv-iframe" id="news-frame" title="Blast Radius Digest" src="https://news.rtm.cc"></iframe>
+    <iframe class="cv-iframe" id="news-frame" title="Blast Radius Digest" src="https://news.rtm.cc/?theme=dark"></iframe>
   </div>
 
   <script src="theme.js"></script>
+  <script>
+    (function () {
+      const newsFrame = document.getElementById('news-frame');
+      const newsBaseUrl = 'https://news.rtm.cc/';
+
+      function setFrameTheme(theme) {
+        newsFrame.src = newsBaseUrl + '?theme=' + theme;
+      }
+
+      setFrameTheme(localStorage.getItem('theme') || 'dark');
+
+      document.addEventListener('themechange', (event) => {
+        setFrameTheme(event.detail.theme);
+      });
+    })();
+  </script>
 </body>
 
 </html>

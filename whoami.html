@@ -13,7 +13,7 @@
   <meta property="og:title" content="whoami - RTM Labs" />
   <meta property="og:description" content="Cybersecurity Professional Profile & CV." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://rtm.cc/whoami" />
+  <meta property="og:url" content="https://about.rtm.cc" />
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="images/toolbox_card.png" />
   <!-- Theme Script to Prevent Flickering -->
@@ -83,14 +83,14 @@
 
   <!-- CV Iframe Container -->
   <div class="iframe-container" style="flex-grow: 1; width: 100%">
-    <iframe class="cv-iframe" id="cv-frame" title="Renan T. Magalhaes CV"></iframe>
+    <iframe class="cv-iframe" id="cv-frame" title="Renan T. Magalhaes CV" src="https://about.rtm.cc/"></iframe>
   </div>
 
   <script src="theme.js"></script>
   <script>
     (function () {
       const cvFrame = document.getElementById('cv-frame');
-      const cvBaseUrl = 'https:/about.rtm.cc/';
+      const cvBaseUrl = 'https://about.rtm.cc/';
 
       function setFrameTheme(theme) {
         cvFrame.src = cvBaseUrl + '?theme=' + theme;

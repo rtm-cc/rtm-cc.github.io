@@ -82,6 +82,13 @@
           </li>
           <li class="nav-item">
             <a
+              href="news.html"
+              id="nav-news"
+              >News</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
               href="whoami.html"
               id="nav-whoami"
               >whoami</a
@@ -224,13 +231,11 @@
             </div>
           </a>
 
-          <!-- Hack the Box Card -->
+          <!-- Blast Radius Digest Card -->
           <a
-            href="https://rtm.cc/HackTheBox/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="initiative-card green"
-            id="link-htb"
+            href="news.html"
+            class="initiative-card orange"
+            id="link-blastradius"
           >
             <div
               class="initiative-info"
@@ -238,42 +243,95 @@
               <h3
                 class="initiative-name"
               >
-                <span>Hack</span> the
-                Box
+                <span>Blast</span> Radius Digest
               </h3>
               <p
                 class="initiative-desc"
               >
-                Solving HTB machines and
-                giving my inputs along
-                the way.
+                Daily cybersecurity intelligence digest tracking critical breaches, zero-days, active threats, and vulnerabilities curated into an interactive board.
               </p>
             </div>
           </a>
+        </div>
 
-          <!-- Try Hack Me Card -->
-          <a
-            href="https://rtm.cc/TryHackMe/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="initiative-card purple"
-            id="link-thm"
+        <!-- Retired / Decommissioned Initiatives (Subtle Toggle) -->
+        <div class="archived-initiatives-wrapper">
+          <button
+            type="button"
+            class="archived-toggle-btn"
+            id="archived-toggle-btn"
+            aria-expanded="false"
+            aria-controls="archived-initiatives"
           >
-            <div
-              class="initiative-info"
+            <svg class="toggle-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="toggle-text">Decommissioned Ops</span>
+            <span class="toggle-count">2</span>
+          </button>
+
+          <div
+            class="archived-initiatives-container"
+            id="archived-initiatives"
+            aria-hidden="true"
+          >
+            <!-- Hack the Box Card -->
+            <a
+              href="https://rtm.cc/HackTheBox/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="initiative-card green archived-card"
+              id="link-htb"
             >
-              <h3
-                class="initiative-name"
+              <div
+                class="initiative-info"
               >
-                Try <span>Hack Me</span>
-              </h3>
-              <p
-                class="initiative-desc"
+                <div class="archived-card-header">
+                  <h3
+                    class="initiative-name"
+                  >
+                    <span>Hack</span> the
+                    Box
+                  </h3>
+                  <span class="archived-badge">ARCHIVED</span>
+                </div>
+                <p
+                  class="initiative-desc"
+                >
+                  Solving HTB machines and
+                  giving my inputs along
+                  the way.
+                </p>
+              </div>
+            </a>
+
+            <!-- Try Hack Me Card -->
+            <a
+              href="https://rtm.cc/TryHackMe/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="initiative-card purple archived-card"
+              id="link-thm"
+            >
+              <div
+                class="initiative-info"
               >
-                Solving THM paths.
-              </p>
-            </div>
-          </a>
+                <div class="archived-card-header">
+                  <h3
+                    class="initiative-name"
+                  >
+                    Try <span>Hack Me</span>
+                  </h3>
+                  <span class="archived-badge">ARCHIVED</span>
+                </div>
+                <p
+                  class="initiative-desc"
+                >
+                  Solving THM paths.
+                </p>
+              </div>
+            </a>
+          </div>
         </div>
       </section>
 
@@ -506,5 +564,20 @@
 
     <script src="theme.js"></script>
     <script src="connectors.js"></script>
+    <script>
+      (function () {
+        const toggleBtn = document.getElementById("archived-toggle-btn");
+        const container = document.getElementById("archived-initiatives");
+        if (toggleBtn && container) {
+          toggleBtn.addEventListener("click", () => {
+            const isExpanded =
+              toggleBtn.getAttribute("aria-expanded") === "true";
+            toggleBtn.setAttribute("aria-expanded", String(!isExpanded));
+            container.setAttribute("aria-hidden", String(isExpanded));
+            container.classList.toggle("is-open", !isExpanded);
+          });
+        }
+      })();
+    </script>
   </body>
 </html>
